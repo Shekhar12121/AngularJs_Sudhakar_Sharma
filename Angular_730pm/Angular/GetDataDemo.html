@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope, $http) {
+             $scope.products=[];
+             $http.get('api/products.json')
+                 .success(function (response) {
+                     $scope.products=response;
+                 })
+            });
+            </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+  <dl>
+      <dt>Products Table</dt>
+      <dd>
+          <table border="1">
+              <th>Product Id</th>
+              <th>Product Name</th>
+              <th>Product Price</th>
+              <tr ng-repeat="item in products">
+                  <td>{{item.ProductId}}</td>
+                  <td>{{item.Name}}</td>
+                  <td>{{item.Price}}</td>
+              </tr>
+          </table>
+      </dd>
+      <dt>Products Json</dt>
+      <dd>
+          <pre>
+              {{products | json}}
+          </pre>
+      </dd>
+  </dl>
+</body>
+</html>

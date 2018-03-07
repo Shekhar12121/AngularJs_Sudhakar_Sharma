@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app = angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+            $scope.txtPwd="";
+            $scope.CheckPassword=function () {
+                var pattern=/(?=.*[A-Z])\w{4,15}/;
+                if($scope.txtPwd.match(pattern))
+                {
+                    $scope.msg="Password Verified..";
+                }
+                else
+                {
+                    $scope.msg="Invalid Password";
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+   Enter Password :
+   <input type="password" ng-model="txtPwd" ng-keyup="CheckPassword()">
+   <span>{{msg}}</span>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .backstyle{
+            background-color: red;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-sanitize.js"></script>
+    <script>
+      var app= angular.module('MyApp',['ngSanitize']);
+      app.controller('MyController', function ($scope) {
+          $scope.msg="Welcome to <b>Angular Js </b>";
+          $scope.fname="Raj";
+          $scope.lname="Kumar";
+      })
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+   <div ng-bind-html="msg" ng-class="'backstyle'"></div>
+   <br>
+   Hello ! <span ng-bind-template="{{fname}} {{lname}}"></span>
+</body>
+</html>

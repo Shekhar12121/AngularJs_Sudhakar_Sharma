@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app = angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+            $scope.txtEmail="";
+            $scope.CheckEmail=function () {
+               var atpos = $scope.txtEmail.indexOf("@");
+               var dotpos = $scope.txtEmail.lastIndexOf(".");
+               if(atpos<2 && dotpos-atpos<1)
+               {
+                   $scope.msg="Invalid Email";
+               }
+               else
+               {
+                   $scope.msg="Email Verified";
+               }
+            }
+        })
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+   Email Address :
+   <input type="text" ng-model="txtEmail" ng-keyup="CheckEmail()">
+   <span>{{msg}}</span>
+</body>
+</html>

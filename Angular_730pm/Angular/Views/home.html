@@ -1,0 +1,29 @@
+<div ng-controller="HomeController">
+    <h2>{{msg}}</h2>
+    <div>
+        {{message}}
+    </div>
+    <div>
+        <pre>
+             <h2>Parameters</h2>
+            {{parameters |json}}
+        </pre>
+    </div>
+     <div>
+         <h2>Product Details</h2>
+         <table border="1">
+             <tr>
+                 <td>Product Id </td>
+                 <td>{{id}}</td>
+             </tr>
+             <tr>
+                 <td>Product Name </td>
+                 <td>{{name}}</td>
+             </tr>
+             <tr>
+                 <td>Product Price </td>
+                 <td>{{price}}</td>
+             </tr>
+         </table>
+     </div>
+</div>

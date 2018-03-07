@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+     <script>
+         var app = angular.module('MyApp',[]);
+         app.controller('MyController', function ($scope) {
+             $scope.getaxis = function (event) {
+                 $scope.xaxis=event.clientX;
+                 if($scope.xaxis>200)
+             }
+         })
+     </script>
+</head>
+<body ng-app="">
+  <span>X={{event.clientX}}  x  Y={{event.clientY}}</span> <br>
+  <img ng-src="Images/pic.png" width="300" height="200" ng-mousemove="getaxis(event)">
+</body>
+</html>

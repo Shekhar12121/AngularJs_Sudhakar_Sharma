@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f1(event) {
+            document.getElementById("msg").innerHTML="X=" + event.clientX + " " + "Y=" + event.clientY;
+        }
+    </script>
+</head>
+<body>
+    <div id="msg"></div>
+   <img src="" width="300" height="300" border="1" alt="image1" onmousemove="f1(event)">
+</body>
+</html>

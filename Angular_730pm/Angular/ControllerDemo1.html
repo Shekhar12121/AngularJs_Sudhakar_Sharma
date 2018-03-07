@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+            $scope.txtId="";
+            $scope.txtName="";
+            $scope.txtPrice="";
+            $scope.isVisible=false;
+            $scope.GetDetails= function () {
+                $scope.isVisible=true;
+                $scope.id=$scope.txtId;
+                $scope.name=$scope.txtName;
+                $scope.price=$scope.txtPrice;
+            };
+        });
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+   <form>
+       Product Id : <input type="text" ng-model="txtId"> <br>
+       Name : <input type="text" ng-model="txtName"> <br>
+       Price: <input type="text" ng-model="txtPrice">
+       <br>
+       <button ng-click="GetDetails()">Register</button>
+       <hr>
+       <div ng-show="isVisible">
+           <table border="1">
+               <tr>
+                   <td>Product ID </td>
+                   <td>{{id}}</td>
+               </tr>
+               <tr>
+                   <td>Product Name </td>
+                   <td>{{name}}</td>
+               </tr>
+               <tr>
+                   <td>Product Price </td>
+                   <td>{{price}}</td>
+               </tr>
+           </table>
+       </div>
+   </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script>
+        var app=angular.module('MyApp',['ngRoute']);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when('/Home/:ProductId/:Name/:Price',{
+                    templateUrl:'Views/home.html',
+                    controller:'HomeController'
+                })
+        })
+        app.controller('mainController', function ($scope) {
+            $scope.message="Message from main";
+        });
+        app.controller('HomeController', function ($scope, $routeParams) {
+                $scope.msg="NareshIT Home";
+                $scope.parameters=$routeParams;
+                $scope.id=$routeParams.ProductId;
+                $scope.name=$routeParams.Name;
+                $scope.price=$routeParams.Price;
+        })
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="mainController">
+   <a href="#/Home/1/SamsungTV/45000">Goto Home</a>
+  <hr>
+   <ng-view></ng-view>
+</body>
+</html>

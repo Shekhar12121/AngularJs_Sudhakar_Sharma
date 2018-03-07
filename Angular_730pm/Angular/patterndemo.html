@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app = angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+            $scope.pattern="\\d"
+        });
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+   <form name="form1">
+       Test Your Pattern : <input type="text" name="pattern" ng-model="pattern">
+       <br>
+       Your Text : <input type="text" name="txtName" ng-model="txtName" ng-pattern="pattern">
+       <br>
+       Pattern Valid : {{form1.txtName.$valid}} <br>
+   </form>
+</body>
+</html>

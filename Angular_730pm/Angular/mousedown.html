@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController',function ($scope) {
+            $scope.img="Images/bulboff.png";
+
+            $scope.bulbon=function () {
+                $scope.img="Images/bulbon.png";
+            }
+            $scope.bulboff=function () {
+                $scope.img="Images/bulboff.png";
+            }
+        });
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+   <img ng-src="{{img}}" ng-mouseup="bulboff()" ng-mousedown="bulbon()">
+   <br>
+    Press hold down the mouse button to turn on Bulb.
+</body>
+</html>

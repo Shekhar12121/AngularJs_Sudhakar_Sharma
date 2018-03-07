@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+            $scope.mobile="\\+91[0-9]{10}";
+            $scope.pwd="(?=.*[A-Z])\\w{4,15}";
+        });
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+<form name="frmHome">
+    <table>
+        <tr>
+            <td> Enter Mobile </td>
+            <td> <input type="text" name="txtMobile" ng-model="txtMobile" ng-pattern="mobile"> </td>
+            <td> <span ng-if="!frmHome.txtMobile.$valid">Invalid Mobile</span></td>
+        </tr>
+        <tr>
+            <td> Enter Password </td>
+            <td> <input type="password" name="txtPwd" ng-model="txtPwd" ng-pattern="pwd"> </td>
+            <td> <span ng-if="!frmHome.txtPwd.$valid">Password 4 to 15 chars with atleast one uppercase letter</span> </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

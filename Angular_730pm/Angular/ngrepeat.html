@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+             var products=["Samsung TV", "Nike Shoe", "Lee Cooper Boot"];
+             var productsTable=[
+                 {ProductId:1, Name:'Samsung TV', Price:23000.45},
+                 {ProductId:2, Name:'Nike Shoe',Price:3200.45}
+                 ];
+             $scope.products=products;
+             $scope.productsTable=productsTable;
+            });
+
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+   <h2>Products List </h2>
+    <ol>
+        <li ng-repeat="item in products">
+            {{item}}
+        </li>
+    </ol>
+ <h2>Products Table </h2>
+  <table border="1">
+      <th>Product Id </th>
+      <th>Product Name </th>
+      <th>Product Price </th>
+      <tr ng-repeat="item in productsTable">
+          <td>{{item.ProductId}}</td>
+          <td>{{item.Name}}</td>
+          <td>{{item.Price}}</td>
+      </tr>
+  </table>
+</body>
+</html>

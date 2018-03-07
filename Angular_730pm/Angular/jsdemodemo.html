@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function SayHello() {
+            var name=document.getElementById("txtName");
+            var message=document.getElementById("msg");
+            message.innerHTML=name.value;
+        }
+    </script>
+</head>
+<body>
+   <form>
+       Enter Name : <input type="text" id="txtName" onkeyup="SayHello()"> <br>
+      Hello ! <span id="msg"></span>
+   </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app="">
+  <ol>
+      <li><input type="checkbox" ng-model="js"> Java Script </li>
+      <li><input type="checkbox" ng-model="ang"> Angular Js </li>
+  </ol>
+  <div>
+      <details ng-open="js">
+          <summary>Java Script</summary>
+          <p> Your Text
+          </p>
+      </details>
+      <details ng-open="ang">
+          <summary>Anuglar Js</summary>
+          <p> Your Text
+          </p>
+      </details>
+  </div>
+</body>
+</html>

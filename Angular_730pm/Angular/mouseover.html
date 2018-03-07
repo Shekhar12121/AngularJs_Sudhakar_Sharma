@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController',function ($scope) {
+            $scope.img="Images/blank.png";
+           $scope.showpin=function () {
+                $scope.img="Images/pin.png";
+            }
+            $scope.hidepin=function () {
+                $scope.img="Images/blank.png";
+            }
+        });
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+    You PIN sent. Move the mouse over img to view pin <br>
+    <div>
+        <img ng-src="{{img}}" border="1" width="200" height="50" ng-mouseover="showpin()" ng-mouseleave="hidepin()">
+    </div>
+
+</body>
+</html>

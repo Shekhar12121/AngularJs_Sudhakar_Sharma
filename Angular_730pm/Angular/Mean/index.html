@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script>
+        var app = angular.module('MyApp',['ngRoute']);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when('/getDetails/:ProductId',{
+                    templateUrl:'details.html',
+                    controller:'DetailsController'
+                })
+                .when('/editDetails/:ProductId',{
+                    templateUrl:'edit.html',
+                    controller:'EditController'
+                })
+                .when('/addProduct',{
+                    templateUrl:'create.html',
+                })
+
+        })
+       app.controller('MyController',function ($scope, $http) {
+           $scope.products=[];
+           $http.get('/getAllProducts')
+               .success(function (response) {
+                   $scope.products=response;
+               })
+           $scope.CreateRecord= function (product) {
+
+               $http.post('/addProduct', product);
+
+           }
+       })
+        app.controller('DetailsController', function ($scope, $routeParams) {
+                $scope.id=$routeParams.ProductId;
+                for(var i=0; i<$scope.products.length; i++)
+                {
+                    if($scope.products[i].ProductId==$scope.id)
+                    {
+                        $scope.prodid=$scope.products[i].ProductId;
+                        $scope.name=$scope.products[i].Name;
+                        $scope.price=$scope.products[i].Price;
+                        $scope.mfd=$scope.products[i].Manufactured;
+                    }
+                }
+        });
+        app.controller('EditController', function ($scope, $routeParams) {
+            $scope.id=$routeParams.ProductId;
+            for(var i=0; i<$scope.products.length; i++)
+            {
+                if($scope.products[i].ProductId==$scope.id)
+                {
+                    $scope.prodid=$scope.products[i].ProductId;
+                    $scope.name=$scope.products[i].Name;
+                    $scope.price=$scope.products[i].Price;
+                    $scope.mfd=$scope.products[i].Manufactured;
+                }
+            }
+        });
+
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+  <h2 align="center">Products Index</h2>
+  <table cellspacing="5" cellpadding="5" border="1" align="center">
+      <th>Product Id </th>
+      <th>Product Name </th>
+      <th>Product Price </th>
+      <th>Manufactured</th>
+      <th>Actions</th>
+      <tr ng-repeat="item in products">
+          <td>{{item.ProductId}}</td>
+          <td>{{item.Name}}</td>
+          <td>{{item.Price}}</td>
+          <td>{{item.Manufactured | date:'MM/dd/yyyy'}}</td>
+          <td><a href="#/getDetails/{{item.ProductId}}">Details</a> <span>|</span>
+              <a href="#/editDetails/{{item.ProductId}}">Edit</a> <span>|</span>
+              <a href="#">Delete</a>
+          </td>
+      </tr>
+      <tr>
+          <td align="center" colspan="5"><a href="#/addProduct">Add New Product </a></td>
+      </tr>
+  </table>
+  <div align="center">
+      <ng-view></ng-view>
+  </div>
+
+</body>
+</html>

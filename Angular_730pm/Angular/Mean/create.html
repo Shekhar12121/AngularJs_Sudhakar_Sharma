@@ -1,0 +1,28 @@
+<div>
+<form ng-submit="CreateRecord(product)">
+    <fieldset>
+        <legend>Add New Product</legend>
+        <table>
+            <tr>
+            <td>Product Id </td>
+            <td><input type="number" ng-model="product.ProductId"></td>
+        </tr>
+            <tr>
+                <td>Product Name </td>
+                <td><input type="text" ng-model="product.Name"></td>
+            </tr>
+            <tr>
+                <td>Product Price </td>
+                <td><input type="text" ng-model="product.Price"></td>
+            </tr>
+            <tr>
+                <td>Manufactured Date </td>
+                <td><input type="date" ng-model="product.Manufactured"></td>
+            </tr>
+        </table>
+        <br>
+        <button>Create</button>
+    </fieldset>
+</form>
+</div>
+<br>

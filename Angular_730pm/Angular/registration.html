@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="bootstrap/css/register.css">
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app="">
+ <div class="container">
+     <h2 class="form-signin-heading">Registration Form</h2>
+     <form name="frmRegister" class="form-signin" novalidate>
+         <div>
+             User Name :
+             <input type="text" ng-model="txtName" name="txtName" class="form-control" required ng-minlength="4" ng-maxlength="10">
+             <span class="text-danger" ng-show="frmRegister.txtName.$error.required">Name Required</span>
+             <span class="text-danger" ng-show="frmRegister.txtName.$error.minlength">Name too short..</span>
+             <span class="text-danger" ng-show="frmRegister.txtName.$error.maxlength">Name too long..</span>
+             <br>
+             Password :
+             <input type="password" ng-model="txtPwd" name="txtPwd" class="form-control" required pattern="(?=.*[A-Z])\w{4,15}">
+             <span class="text-danger" ng-show="frmRegister.txtPwd.$error.required">Password Required</span>
+             <span class="text-danger" ng-show="frmRegister.txtPwd.$error.pattern">Password 4 to 15 chars with atleast one uppercase letter</span>
+             <br>
+             Email :
+             <input type="email" ng-model="txtEmail" name="txtEmail" class="form-control">
+             <span class="text-danger" ng-show="frmRegister.txtEmail.$error.email">Invalid Email</span>
+             <br>
+             Terms of Service:
+             <br>
+             <textarea rows="4" cols="30" readonly class="form-control">
+                 terms of service..
+                 Your use of this software is subject to the terms and conditions of the license agreement by which you acquired this software.  If you are a volume license customer, use of this software is subject to your volume license agreement.  You may not use this software if you have not validly acquired a license for the software from Microsoft or its licensed distributors.
+             </textarea> <br>
+             <input type="checkbox" ng-model="terms"> Accept Terms of Service
+             <br>
+             <button class="btn btn-lg btn-success btn-block" ng-disabled="!terms">Register</button>
+         </div>
+     </form>
+ </div>
+</body>
+</html>

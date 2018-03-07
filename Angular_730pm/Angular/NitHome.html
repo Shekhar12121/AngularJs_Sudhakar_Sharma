@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script>
+        var app=angular.module('MyApp',['ngRoute']);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when('/Home/:Id/:Name',{
+                    templateUrl:'Views/home.html'
+                })
+                .when('/About',{
+                    templateUrl:'Views/about.html'
+                })
+                .when('/Contact',{
+                    templateUrl:'Views/contact.html'
+                })
+                .when('/Faculty',{
+                    template:'<div><h2>Faculty Info</h2></div>'
+                })
+                .when('/',{
+                    templateUrl:'Views/home.html'
+                })
+        });
+    </script>
+</head>
+<body ng-app="MyApp">
+ <table border="2" width="800">
+     <tr>
+         <td colspan="2" align="center" style="background-color: grey;color: white">NareshIT | Hyderabad</td>
+     </tr>
+     <tr style="height: 400px">
+         <td>
+             <ul> <font size="6">
+                 <li><a href="#/Home/1/TV">Home</a> </li>
+                 <li><a href="#/About">About</a> </li>
+                 <li><a href="#/Contact">Contact</a></li>
+                 <li><a href="#/Faculty">Faculty</a></li>
+             </font>
+             </ul>
+         </td>
+         <td style="width:600px">
+             <ng-view></ng-view>
+         </td>
+     </tr>
+     <tr>
+         <td colspan="2" align="center" style="background-color: grey;color: white">&copy; copyright 2017 <br>
+         Faculty | Courses | Offers | Development
+         </td>
+     </tr>
+ </table>
+</body>
+</html>

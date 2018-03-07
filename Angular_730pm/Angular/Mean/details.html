@@ -1,0 +1,21 @@
+<div ng-controller="DetailsController">
+    <h2>Product Details</h2>
+    <table frame="box" rules="all" align="center">
+        <tr>
+            <td>Product Id </td>
+            <td>{{prodid}}</td>
+        </tr>
+        <tr>
+            <td>Product Name </td>
+            <td>{{name}}</td>
+        </tr>
+        <tr>
+            <td>Product Price </td>
+            <td>{{price}}</td>
+        </tr>
+        <tr>
+            <td>Manufactured Date</td>
+            <td>{{mfd | date:'MM/dd/yyyy'}}</td>
+        </tr>
+    </table>
+</div>

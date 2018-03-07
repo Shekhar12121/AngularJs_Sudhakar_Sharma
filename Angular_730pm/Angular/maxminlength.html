@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app="">
+    <form name="form1">
+         Set Maxlength:
+         <input type="number" min="1" max="15" ng-model="txtmax"> <br>
+         Set MinLength:
+        <input type="number" min="1" max="15" ng-model="txtmin"> <br>
+         Enter Name :
+        <input type="text" placeholder="Name max 10 cars" name="txtName" ng-model="txtName" ng-maxlength="txtmax" ng-minlength="txtmin">
+        <br>
+        <span ng-if="!form1.txtName.$valid">Name too short or long - {{txtmin}} to {{txtmax}} chars</span>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app="">
+  <form name="frmHome">
+      User Name : <input type="text" name="txtName" ng-model="txtName" required>
+      <br>
+      Email : <input type="email" name="txtEmail" ng-model="txtEmail">
+      <br>
+      <input type="submit" value="Register">
+     <br>
+       <hr>
+      <table border="1">
+          <tr>
+              <td>Form untouched</td>
+              <td>{{frmHome.$pristine}}</td>
+          </tr>
+          <tr>
+              <td>Form touched</td>
+              <td>{{frmHome.$dirty}}</td>
+          </tr>
+          <tr>
+              <td>Form Valid</td>
+              <td>{{frmHome.$valid}}</td>
+          </tr>
+          <tr>
+              <td>Form Invalid</td>
+              <td>{{frmHome.$invalid}}</td>
+          </tr>
+      </table>
+  </form>
+</body>
+</html>

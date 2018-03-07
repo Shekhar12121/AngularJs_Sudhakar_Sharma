@@ -1,0 +1,20 @@
+[
+  {
+    "ProductId":1,
+    "Name":"Samsung TV",
+    "Price":45000,
+    "Photo":"Images/tv.jpg"
+  },
+  {
+    "ProductId":2,
+    "Name":"Nike Shoe",
+    "Price":2000,
+    "Photo":"Images/shoe.jpg"
+  },
+  {
+    "ProductId":3,
+    "Name":"Mobile",
+    "Price":12000,
+    "Photo":"Images/mobile.jpg"
+  }
+]

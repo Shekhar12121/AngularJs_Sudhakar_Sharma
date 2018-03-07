@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .even{
+            color:green;
+        }
+        .odd{
+            color:red;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+            var products =["Samsung TV","Nike Shoe","Mobile","Lee Cooper Boot"];
+            $scope.products=products;
+        });
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+  <ol>
+      <li ng-repeat="item in products">
+          <span ng-class-even="'even'" ng-class-odd="'odd'">
+              {{item}}
+          </span>
+      </li>
+  </ol>
+</body>
+</html>

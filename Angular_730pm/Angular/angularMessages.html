@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="bootstrap/css/register.css">
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-messages.js"></script>
+    <script>
+        var app=angular.module('MyApp',['ngMessages']);
+    </script>
+</head>
+<body ng-app="MyApp">
+<div class="container">
+    <h2 class="form-signin-heading">Registration Form</h2>
+    <form name="frmRegister" class="form-signin" novalidate>
+        <div>
+            User Name :
+            <input type="text" ng-model="txtName" name="txtName" class="form-control" required ng-minlength="4" ng-maxlength="10">
+            <div ng-messages="frmRegister.txtName.$error">
+                <span ng-message="required" class="text-danger">Name Required</span>
+                <span ng-message="minlength" class="text-danger">Name too short..</span>
+                <span ng-message="maxlength" class="text-danger">Name too long..</span>
+            </div>
+          <br>
+            <button class="btn btn-lg btn-success btn-block" ng-disabled="!terms">Register</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

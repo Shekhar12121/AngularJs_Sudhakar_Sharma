@@ -1,0 +1,10 @@
+.strike{
+    text-decoration: line-through;
+}
+.makebold{
+    font-weight: bold;
+}
+.highlight{
+    background-color: green;
+    color:white;
+}

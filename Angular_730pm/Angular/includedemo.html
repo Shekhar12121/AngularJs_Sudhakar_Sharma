@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+                var products=[
+                    {ProductId:1, Name:"Samsung TV", Preview:"Images/tv.jpg", Price:30000},
+                    {ProductId:2, Name:"Nike Shoe", Preview:"Images/shoe.jpg", Price:2000},
+
+                ];
+                $scope.products=products;
+                $scope.layout="gridview.html";
+            });
+            </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+   <fieldset>
+       <legend>Select a Layout</legend>
+       <select ng-model="layout">
+           <option value="gridview.html">Grid View</option>
+           <option value="catalog.html">Catalog</option>
+       </select>
+   </fieldset>
+   <div ng-include="layout">
+
+   </div>
+</body>
+</html>

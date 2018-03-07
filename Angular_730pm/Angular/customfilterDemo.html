@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.filter('ChangeCase',function () {
+            return function () {
+                
+            }
+        })
+        app.controller('MyController', function () {
+            $scope.msg="Welcome to Angular";
+        })
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+    {{msg|ChangeCase}}
+   <embed src="images/banner.swf"></embed>
+</body>
+</html>

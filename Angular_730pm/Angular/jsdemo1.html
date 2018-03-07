@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Hello() {
+            document.getElementById("msg").innerHTML=document.getElementById("txtName").value;
+        }
+        function bodyload() {
+            window.document.Images[0].src="Images/3.jpg";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+  <form>
+       <img width="100" height="100" border="1" src="">
+      <br>
+      Enter Name : <input type="text" id="txtName" onkeyup="Hello()">
+       <br>
+     Hello !  <span id="msg"></span>
+  </form>
+</body>
+</html>

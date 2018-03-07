@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <link rel="stylesheet" href="styles/docstyles.css">
+</head>
+<body ng-app="">
+
+  <hr>
+  <fieldset>
+      <legend>Select Style</legend>
+      <input type="checkbox" ng-model="strikeout"> Strikeout Effect <br>
+      <input type="checkbox" ng-model="bold"> Bold <br>
+      <input type="checkbox" ng-model="high"> Highlight Text <br>
+  </fieldset>
+  <fieldset>
+      <legend>Preview</legend>
+      <div ng-class="{strike:strikeout,makebold:bold,highlight:high}">Sample Text </div>
+  </fieldset>
+</body>
+</html>

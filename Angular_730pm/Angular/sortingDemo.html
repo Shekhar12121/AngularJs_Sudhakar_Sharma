@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+                var products = [
+                    {ProductId: 1, Name: 'Samsung TV', Price: 34000, mfd: new Date('2 Jan 2017')},
+                    {ProductId: 2, Name: 'Mobile', Price: 12000, mfd: new Date('11 Feb 2017')},
+                    {ProductId: 3, Name: 'Nike Shoe', Price: 3000, mfd: new Date('22 Dec 2016')},
+                    {ProductId: 4, Name: 'Lee Cooper Boot', Price: 4000, mfd: new Date('14 Mar 2017')},
+
+                ];
+                $scope.products=products;
+                $scope.fieldName="ProductId";
+                $scope.reverse=false;
+                $scope.SortBy=function (fieldName) {
+                    $scope.fieldName=fieldName;
+                    $scope.reverse= ($scope.fieldName===fieldName)?!$scope.reverse:$scope.reverse;
+                }
+            });
+        </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+  <fieldset>
+      <legend>Search Product </legend>
+       <div>
+           Search By Any Field : <input type="text" ng-model="search.$"> <br>
+           Search By Name : <input type="text" ng-model="search.Name"> <br>
+           Search By Price : <input type="text" ng-model="search.Price">
+       </div>
+      <br> <input type="checkbox" ng-model="strict"> Enable Strict Search
+  </fieldset>
+   <br>
+<table border="1">
+    <th> <a href="#" ng-click="SortBy('ProductId')">Product ID</a> </th>
+    <th><a href="#" ng-click="SortBy('Name')">Name</a></th>
+    <th><a href="#" ng-click="SortBy('Price')">Price</a></th>
+    <th> <a href="#" ng-click="SortBy('mfd')">Manufactured</a></th>
+    <tr ng-repeat="item in products | orderBy:fieldName:reverse | filter:search:strict">
+        <td>{{item.ProductId}}</td>
+        <td>{{item.Name |uppercase}}</td>
+        <td>{{item.Price |currency:'&#8377;'}}</td>
+        <td>{{item.mfd | date:'d/MMMM/yyyy'}}</td>
+    </tr>
+</table>
+</body>
+</html>

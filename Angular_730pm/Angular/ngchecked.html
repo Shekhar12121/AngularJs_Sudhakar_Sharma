@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app="">
+    <input type="checkbox" ng-model="all"> Select All <hr>
+    <div>
+        <input type="checkbox" ng-checked="all"> HTML <br>
+        <input type="checkbox" ng-checked="all"> Jquery <br>
+        <input type="checkbox" ng-checked="all"> Angular Js <br>
+    </div>
+    <fieldset>
+        <legend>Select City</legend>
+        <input type="checkbox" ng-model="hyd">Select Hyderabad
+        <hr>
+        <select>
+            <option>Delhi</option>
+            <option ng-selected="hyd">Hyderabad</option>
+            <option>Delhi</option>
+        </select>
+    </fieldset>
+
+</body>
+</html>

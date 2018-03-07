@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope, $log) {
+              $scope.$log=$log;
+              $scope.msg="Test Message";
+            });
+        </script>
+    <script>
+
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+ <div class="container">
+  <form class="form-group">
+      <button ng-click="$log.warn(msg)" class="btn-warning form-control" >Warning</button>
+      <button ng-click="$log.info(msg)" class="btn-info form-control">Information</button>
+      <button ng-click="$log.error(msg)" class="btn-danger form-control">Error</button>
+  </form>
+ </div>
+</body>
+</html>

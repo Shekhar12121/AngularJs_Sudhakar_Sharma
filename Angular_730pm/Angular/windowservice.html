@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope, $window) {
+            $scope.PrintClick=function () {
+                $window.print();
+            }
+            $scope.OpenPage=function () {
+                $window.open('ProductsInfo.html','ProductsList','width=300 height=200');
+            }
+            $scope.CloseClick=function () {
+                $window.close();
+            }
+        })
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+  <div>
+      Print Your Ticket
+      <br>
+      <button ng-click="PrintClick()">Print</button>
+      <button ng-click="OpenPage()">Open Products Info</button>
+      <button ng-click="CloseClick()">Close Window</button>
+  </div>
+
+</body>
+</html>

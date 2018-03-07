@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app="">
+<form>
+   Enter Name : <input type="text" ng-model="txtName"> <br>
+    Select Age : <input type="number" ng-model="txtAge">
+     <br>
+    Select City :
+    <Select ng-model="lstCity">
+        <option value="Delhi">Delhi</option>
+        <option value="Hyderabad">Hyderabad</option>
+    </Select> <br>
+    <fieldset>
+        <legend>Gender</legend>
+        <input type="radio" ng-model="gender" value="Male" name="gender">
+        Male
+        <input type="radio" ng-model="gender" value="Female" name="gender">
+        Female
+    </fieldset>
+   <hr>
+   Name : <span ng-bind="txtName"></span> <br>
+    Age : <span ng-bind="txtAge"></span> <br>
+    City : <span ng-bind="lstCity"></span> <br>
+    Gender : <span ng-bind="gender"></span> <br>
+</form>
+</body>
+</html>

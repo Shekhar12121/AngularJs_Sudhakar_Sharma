@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('MyApp',[]);
+        app.controller('MyController', function ($scope) {
+            var products=[
+                {ProductId:1, Name:'Samsung TV', Price:34000, mfd:new Date('2 Jan 2017')},
+                {ProductId:2, Name:'Mobile', Price:12000, mfd:new Date('11 Feb 2017')},
+                {ProductId:3, Name:'Nike Shoe', Price:3000, mfd:new Date('22 Dec 2016')},
+                {ProductId:4, Name:'Lee Cooper Boot', Price:4000, mfd:new Date('14 Mar 2017')},
+
+            ];
+            $scope.products=products;
+            $scope.records=3;
+            $scope.sort=function (fieldname) {
+
+            }
+        });
+    </script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+
+   <div>
+        <div align="center">
+           <input type="number" min="1" max="4" ng-model="records"> No of Records
+        </div> <br>
+       <div>
+           Search Product :
+           <input type="text" ng-model="search"> <br>
+       </div> <br>
+       <table border="1">
+           <th><a href="#" ng-click="Sort(fieldname)">ProductId</a></th>
+           <th><a href="#" ng-click="Sort()">Name</a></th>
+           <th><a href="#" ng-click="Sort()">Price</a></th>
+           <th><a href="#" ng-click="Sort()">Manufactured</a></th>
+           <tr ng-repeat="item in products |orderBy:'fieldname':reverse | limitTo:records | filter:search">
+               <td>{{item.ProductId}}</td>
+               <td>{{item.Name |uppercase}}</td>
+               <td>{{item.Price |currency:'&#8377;'}}</td>
+               <td>{{item.mfd | date:'d/MMMM/yyyy'}}</td>
+           </tr>
+       </table>
+       <br>
+       <div>
+           <h2>Products JSON </h2>
+           <pre>
+               {{products | json}}
+           </pre>
+       </div>
+   </div>
+</body>
+</html>
